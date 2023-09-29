@@ -1,7 +1,7 @@
-langchain==0.0.305
-openai==0.28.1
-PyPDF2==3.0.1
-python-dotenv==1.0.0
-streamlit==1.27.1
+langchain
+openai
+PyPDF2
+python-dotenv
+streamlit
 
 
