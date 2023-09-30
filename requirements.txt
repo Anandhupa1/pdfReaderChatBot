@@ -1,4 +1,4 @@
-langchain=0.0.27
+langchain==0.0.27
 openai
 PyPDF2
 python-dotenv
