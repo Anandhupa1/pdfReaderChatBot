@@ -5,4 +5,4 @@ python-dotenv
 streamlit
 streamlit-extras
 faiss-cpu==1.7.4
-pydantic==1.8
+
