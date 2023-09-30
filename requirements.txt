@@ -1,7 +1,8 @@
-langchain
+langchain=0.0.27
 openai
 PyPDF2
 python-dotenv
 streamlit
-
+streamlit-extras
+faiss-cpu==1.7.4
 
