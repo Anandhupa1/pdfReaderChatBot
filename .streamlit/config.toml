@@ -1,0 +1,8 @@
+[theme]
+base="light"
+primaryColor = '#34013f'
+secondaryColor='#34013f'
+backgroundColor = '#fff'  # Change the background color
+css = "custom.css"  # Reference your custom CSS file
+font = "sans-serif"
+

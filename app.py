@@ -20,7 +20,6 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 
 
 
-
 # Function to extract text from a PDF file
 def extract_text_from_pdf(pdf_file):
     pdf_text = ""
@@ -33,18 +32,41 @@ def extract_text_from_pdf(pdf_file):
 
 # Set the theme to light mode and add an emoji icon
 st.set_page_config(
-    page_title="PDF Reader App",
+    page_title="pdf reader app",
     page_icon="📄",  # Emoji icon related to PDF
-    # layout="wide",
+    layout="wide",
     # initial_sidebar_state="expanded",  # You can change this as needed
 )
 
+# Add some CSS styling to the text
+st.markdown(
+    """
+    <style>
+    .custom-heading {
+    color: #34013f;
+    }
+    .text-box {
+        padding: 20px;
+        background-color: #34013f;
+        color:#fff;
+        border-radius: 10px;
+        margin-top:20px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, #34013f 0px 1px 2px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # Streamlit app with a sidebar
-st.title("PDF Reader App")
+st.markdown("<h1 class='custom-heading'>Robo Reader</h1>", unsafe_allow_html=True)
 
 # Define content for the sidebar
 with st.sidebar:
-    st.header("Sidebar Content")
+    # st.header("Sidebar Content")
+    image_path = 'https://png.pngtree.com/png-vector/20230321/ourmid/pngtree-artificial-intelligence-robot-illustration-png-image_6654937.png'  # Replace with the actual path to your image file
+    st.image(image_path, caption="Chat with your pdf files at ease...", use_column_width=True)
+   
     # You can add widgets and other content to the sidebar here
 
 
@@ -66,7 +88,7 @@ if current_pdf is not None:
         length_function = len
     )
     chunks = text_splitter.split_text(text=pdf_text)
-    st.write(current_pdf.name[:-4])
+    # st.write(current_pdf.name[:-4])
 
 #3. converting text to vectors ie, by embedding , 
 #   so that we can compare two and get the similiarity.
@@ -102,4 +124,8 @@ if current_pdf is not None:
         llm = OpenAI(model_name="gpt-3.5-turbo",temperature=1.5)
         chain = load_qa_chain(llm=llm,chain_type="stuff");
         response = chain.run(input_documents=docs,question=query)
-        st.write(response)
+        # st.write(response)
+# else :
+    # gif_path = "load.gif"  # Replace with the actual path to your GIF file
+    # st.image(gif_path, caption="Animated GIF", use_column_width=True)
+        st.markdown(f"<div class='text-box'>{response}</div>", unsafe_allow_html=True)
