@@ -2,6 +2,8 @@ import streamlit as st
 import os
 import openai
 import pickle
+import langchain
+langchain.verbose = False
 #step 1 converting pdf to text
 from PyPDF2 import PdfReader
 #step 1 splitting data 
